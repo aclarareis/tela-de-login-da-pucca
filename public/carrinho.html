@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+        .products, .cart {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .product, .cart-item {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 200px;
+            text-align: center;
+        }
+        .product img, .cart-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .cart {
+            flex-direction: column;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-item p {
+            margin: 0;
+        }
+        .total {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .add-to-cart-btn, .checkout-btn {
+            background-color: #ff8c8c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .add-to-cart-btn:hover, .checkout-btn:hover {
+            background-color: #ff5c5c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Loja Virtual</h1>
+
+    <!-- Lista de Produtos -->
+    <div class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Produto 1">
+            <h3>Produto 1</h3>
+            <p>R$ 50,00</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Produto 1', 50)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Produto 2">
+            <h3>Produto 2</h3>
+            <p>R$ 80,00</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Produto 2', 80)">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Produto 3">
+            <h3>Produto 3</h3>
+            <p>R$ 120,00</p>
+            <button class="add-to-cart-btn" onclick="addToCart('Produto 3', 120)">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>Carrinho de Compras</h2>
+    <div class="cart" id="cart">
+        <!-- Itens do carrinho serão adicionados aqui -->
+    </div>
+
+    <div class="total">
+        Total: R$ <span id="total-price">0.00</span>
+    </div>
+
+    <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+</div>
+
+<script>
+    let cart = [];
+    let total = 0;
+
+    // Função para adicionar item ao carrinho
+    function addToCart(productName, productPrice) {
+        const item = { name: productName, price: productPrice };
+        cart.push(item);
+        total += productPrice;
+        updateCart();
+    }
+
+    // Função para atualizar a exibição do carrinho
+    function updateCart() {
+        const cartContainer = document.getElementById('cart');
+        cartContainer.innerHTML = ''; // Limpa o carrinho antes de adicionar novos itens
+
+        cart.forEach(item => {
+            const cartItemElement = document.createElement('div');
+            cartItemElement.classList.add('cart-item');
+            cartItemElement.innerHTML = `
+                <p>${item.name}</p>
+                <p>R$ ${item.price.toFixed(2)}</p>
+            `;
+            cartContainer.appendChild(cartItemElement);
+        });
+
+        document.getElementById('total-price').innerText = total.toFixed(2);
+    }
+
+    // Função para finalizar a compra
+    function checkout() {
+        if (cart.length === 0) {
+            alert("Seu carrinho está vazio!");
+            return;
+        }
+        alert(`Compra finalizada! Total: R$ ${total.toFixed(2)}`);
+        cart = [];
+        total = 0;
+        updateCart();
+    }
+</script>
+
+</body>
+</html>
