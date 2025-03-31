@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-header h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .profile-header p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .profile-info {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .profile-info h3 {
+            color: #f0c3e2;
+            margin-top: 20px;
+        }
+
+        .profile-info p {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .social-links a {
+            color: #3b5998; /* Facebook */
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .social-links a.instagram {
+            color: #E4405F; /* Instagram */
+        }
+
+        .button {
+            background-color: #f0c3e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #f084a6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <img src="https://via.placeholder.com/120" alt="Imagem de Perfil">
+        <div>
+            <h2>Ana Clara</h2>
+            <p>E-mail: clarareisdasilva717@gmail.com</p>
+            <p>Localização: Goiania, Brasil</p>
+        </div>
+    </div>
+
+    <div class="profile-info">
+        <h3>Informações Pessoais</h3>
+        <p>Idade: 27 anos</p>
+        <p>Profissão: Enfermeira</p>
+        <p>Interesses: Enfermagem, Tecnologia, Viagens</p>
+
+        <h3>Redes Sociais</h3>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=100082222970153" target="_blank">Facebook</a>
+            <a href="https://instagram.com/" target="_blank" class="instagram">Instagram</a>
+        </div>
+
+        <button class="button">Editar Perfil</button>
+    </div>
+</div>
+
+</body>
+</html>
