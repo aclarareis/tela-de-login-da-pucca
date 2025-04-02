@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffb6c1;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ff69b4;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .product {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .product img {
+            width: 100px;
+            height: auto;
+            border-radius: 9px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            color:  #d6336c;
+        }
+
+        .payment-options {
+            margin-top: 20px;
+        }
+
+        .payment-button {
+            padding: 10px;
+            background-color: #d6336c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1em;
+        }
+
+        .payment-button:disabled {
+            background-color: #95a5a6;
+        }
+
+        .confirmation {
+            margin-top: 20px;
+            display: none;
+            padding: 10px;
+            background-color:  #07fb6d;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .payment-method {
+            margin-top: 15px;
+        }
+
+        .payment-method label {
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Loja My Melody</h1>
+    </header>
+
+    <div class="container">
+        <h2>Produtos Selecionados</h2>
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/09/82/5c/09825c125dbbfeb9bbce0aac80dd94f9.jpg" alt="Produto">
+            <div>
+                <h3>Urso Cinnamoroll</h3>
+                <p>Produto de otima qualidade.</p>
+                <p class="price">R$ 60,00</p>
+            </div>
+        </div>
+
+        <h3>Escolha uma forma de pagamento</h3>
+        <div class="payment-method">
+            <label>
+                <input type="radio" name="payment" value="cartao" id="cartao"> Cartão de Crédito
+            </label>
+            <label>
+                <input type="radio" name="payment" value="boleto" id="boleto"> Boleto Bancário
+            </label>
+            <label>
+                <input type="radio" name="payment" value="pix" id="pix"> PIX
+            </label>
+        </div>
+
+        <button id="confirmButton" class="payment-button" disabled>Finalizar Compra</button>
+
+        <div id="confirmationMessage" class="confirmation">
+            <p>Compra realizada com sucesso! Obrigada pela sua compra.</p>
+        </div>
+    </div>
+
+    <script>
+        // Função para habilitar ou desabilitar o botão de confirmação
+        const paymentButtons = document.querySelectorAll('input[name="payment"]');
+        const confirmButton = document.getElementById('confirmButton');
+
+        paymentButtons.forEach(button => {
+            button.addEventListener('change', () => {
+                confirmButton.disabled = false;  // Habilita o botão
+            });
+        });
+
+        // Função para exibir a confirmação da compra
+        confirmButton.addEventListener('click', () => {
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            confirmationMessage.style.display = 'block'; // Mostra a confirmação
+            confirmButton.disabled = true; // Desabilita o botão após a compra
+            confirmButton.textContent = 'Compra Confirmada';
+        });
+    </script>
+
+</body>
+</html>
