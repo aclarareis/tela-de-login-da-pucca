@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Loja Virtual</title>
+    <style>
+        /* Resetando margens e paddings para garantir consistência */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffb6c1;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #ff69b4;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fcfbfb;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #f9f5f6;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #d6336c;
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color:  #f989b1;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        .success-message {
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .error-message {
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .contact-info div {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Entre em Contato com a Dona da Loja My Melody</h1>
+    </header>
+
+    <div class="container">
+        <h2>Formulário de Contato</h2>
+
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Seu email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Assunto</label>
+                <input type="text" id="subject" name="subject" placeholder="Assunto do contato" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" placeholder="Escreva sua mensagem" required></textarea>
+            </div>
+
+            <input type="submit" value="Enviar Mensagem">
+        </form>
+
+        <div id="successMessage" class="success-message">
+            Sua mensagem foi enviada com sucesso! A dona da loja entrará em contato em breve.
+        </div>
+
+        <div id="errorMessage" class="error-message">
+            Ocorreu um erro ao enviar sua mensagem. Tente novamente.
+        </div>
+
+        <div class="contact-info">
+            <h3>Outras formas de contato:</h3>
+            <div>
+                <strong>Telefone:</strong> (62) 99966-4467
+            </div>
+            <div>
+                <strong>Email:</strong> @lojamymelody.gmail.com
+            </div>
+            <div>
+                <strong>Endereço:</strong> Rua da Loja, 123, Centro, Goiania - GO
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Validação do formulário
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            // Coletando os dados do formulário
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Validação simples
+            if (name === "" || email === "" || subject === "" || message === "") {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+            } else {
+                // Simulando um envio bem-sucedido
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+                
+                // Limpar os campos após envio
+                document.getElementById('contactForm').reset();
+            }
+        });
+    </script>
+
+</body>
+</html>
