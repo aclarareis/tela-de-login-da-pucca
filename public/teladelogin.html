@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Site de Compras</title>
+    <style>
+        /* Resetando algumas configurações padrões */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://2.bp.blogspot.com/_FABjAc8jduQ/SYcC_Q1DM_I/AAAAAAAAAAc/uTWh_tuaflU/s400/pucca3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .login-form {
+            background: rgba(247, 246, 246, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #fbf6f6;
+            border-radius: 5px;
+            margin-top: 5px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: rgb(236, 16, 16);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: rgb(253, 243, 243);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .forgot-password {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .forgot-password a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" name="username" placeholder="Digite seu nome de usuário" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit">Entrar</button>
+                <p class="error-message">Erro: Nome de usuário ou senha incorretos.</p>
+                <p class="forgot-password"><a href="#">Esqueceu sua senha?</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
